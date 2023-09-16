@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../dist/output.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="preload" href="search.js" as="script">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body id="body">
+    <!-- Navbar -->
+    <nav class="flex sticky top-0 bg-white justify-between items-center w-4/5 mx-auto py-10">
+        <div class="flex justify-between lg:w-1/6">
+            <img class=" hover:animate-bounce" src="../Assets/Logo.svg"  alt="Logo"/>
+            <span class="hidden md:hidden lg:inline">Home</span>
+        </div>
+        <div class="flex justify-between items-center w-fit  md:w-fit lg:w-1/5">
+            <span class="hidden md:hidden lg:inline">Login</span>
+            <button class=" bg-black hidden md:hidden lg:inline lg:w-[75%] text-white p-3 rounded">Create an account</button>
+            <span class="inline md:inline lg:hidden">
+                <img id="Menu-btn" src="Assets/Hamburger Menu.svg" alt="Hamburger menu" class="animate-ping">
+            </span>
+        </div>
+    </nav>
+
+    <ul id="show-menu" class="absolute right-5 transition-transform translate-y-6 duration-75 ease-in-ease-out hidden grid grid-cols-1 gap-2 p-10 justify-end bg-black text-white sm:w-full md:w-2/5">
+        <img id="close-btn" src="Assets/Close.svg" alt="close button" class="p-4 bg-red-700 justify-end hover:text-black hover:bg-red">
+        <li class="p-4 text-slate-100 hover:bg-slate-100 hover:text-black">Home</li>
+        <li class="p-4 text-slate-100 hover:bg-slate-100 hover:text-black">Login</li>
+        <button class=" bg-slate-100 w-full text-black p-3 rounded">Create an account</button>
+    </ul>
+
+    <section id="top-bar" class="w-4/5 mx-auto ">
+        <div class="bg-slate-100 p-5 md:p-10 lg:p-10 flex justify-center items-center md:justify-start lg:justify-start lg:items-center ">
+            <div class="w-[95%] md:w-9/12 lg:w-1/3 grid grid-flow-row gap-1 ">
+                <h1 class="text-3xl font-bold">Welcome to YelpCamp!</h1>
+                <p class="">View our hand-picked campgrounds from all over the world or add your own.</p>
+                <div class="lg:flex flex-row gap-5 content-between flex-wrap">
+                    <input class="input p-4 w-full md:w-38 lg:w-[60%] rounded-lg" type="text" placeholder="&#xF002; Search for Camps" style="font-family:Arial, FontAwesome" />
+                    <button id="btn" class=" bg-black md:w-32 lg:w-32 w-full text-white p-4 rounded-lg" type="button">Search</button>
+                </div>
+                <p id="addDetails" class="underline cursor-pointer">Or add your own campground</p>
+            </div>
+        </div>
+        <div id="card-container" class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full gap-5 mt-20">
+            <!-- campground's cards are rendered here-->
+        </div>
+    </section>
+
+    <div id="container-info" class="grid grid-cols-2" class="hidden">
+        <div class="flex flex-row">
+            <div id="mapContainer" class="hidden">
+                <!-- Embed an Earth map here -->
+                
+            </div>
+            <div id="detailedInfoContainer" class="hidden">
+                <!-- Detailed campground information goes here -->
+            </div>
+        </div>
+        <div id="feedbackContainer" class="">
+            <!-- Customer feedbacks go here -->
+        </div>
+    </div>
+    
+
+    <div id="popupContainer" class="popup">
+        <div class="popup-content">
+            <span class="close-button" id="closePopupButton">&times;</span>
+            <div class="flex flex-col">
+                <input class="input p-2 mb-5 border-b-2 w-3/4 md:w-38 " placeholder="&#xF002; Name of camp-ground" style="font-family:Arial, FontAwesome" type="text" id="nameOfCampGround"/>
+                <input class="input p-2 mb-5 border-b-2 w-3/4 md:w-38 " type="text" placeholder="&#xF002; Description of camp-ground" style="font-family:Arial, FontAwesome" id="description">
+                <input type="file" id="imageOfCampGround" class="mb-5 ">
+                <button id="addCamp" type="button" class="bg-black text-white rounded p-3">Add campGround</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="search.js" async></script>
+
+</body>
+</html>
+
+
+
+<!-- <img src="/Assets/Chat Bubble.svg" alt="ghb"/> -->
