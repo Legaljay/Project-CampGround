@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <!-- used grid method -->
 
-    <div class="h-screen grid grid-rows-6 grid-flow-col gap-4">
+    <div id="landingPage" class="h-screen grid grid-rows-6 grid-flow-col gap-4">
       <div class="w-full h-fit px-10 lg:px-20 self-center col-span-2 order-1 md:col-span-2 md:order-1 lg:col-span-1">
         <img class=" hover:animate-bounce" src="Assets/Logo.svg"  alt="Logo"/>
       </div>
@@ -34,7 +35,7 @@
         </ul>
         
 
-        <button class="bg-black text-white text-sm font-medium w-44 h-12 rounded"><a href="searchPage.html">View Campgrounds</a></button>
+        <button id="nextFromLP" class="bg-black text-white text-sm font-medium w-44 h-12 rounded"><a href="#searchPage">View Campgrounds</a></button>
         <p>Partnered with:</p>
         
         <div class="grid grid-cols-3 items-center w-38">
@@ -47,5 +48,131 @@
         <img class="h-full w-full lg:h-screen" src="Assets/Hero Image.jpg"  alt="Hero image"/>
       </div>
     </div>
+    <!-- -------------------------------------------------------------------- -->
+    <!-- SEARCHPAGE -->
+    <!-- -------------------------------------------------------------------- -->
+    <div id="searchPage" class="hidden">
+      <nav class="flex sticky top-0 bg-white justify-between items-center w-4/5 mx-auto py-10">
+        <div class="flex justify-between lg:w-1/6">
+            <img class=" hover:animate-bounce" src="Assets/Logo.svg"  alt="Logo"/>
+            <span class="hidden md:hidden lg:inline">Home</span>
+        </div>
+        <div class="flex justify-between items-center w-fit  md:w-fit lg:w-1/5">
+            <span class="hidden md:hidden lg:inline">Login</span>
+            <button class=" bg-black hidden md:hidden lg:inline lg:w-[75%] text-white p-3 rounded">Create an account</button>
+            <span class="inline md:inline lg:hidden">
+                <img id="Menu-btn" src="Assets/Hamburger Menu.svg" alt="Hamburger menu" class="animate-ping">
+            </span>
+        </div>
+      </nav>
+
+      <ul id="show-menu" class="absolute right-5 transition-transform translate-y-6 duration-75 ease-in-ease-out hidden grid grid-cols-1 gap-2 p-10 justify-end bg-black text-white sm:w-full md:w-2/5">
+          <img id="close-btn" src="Assets/Close.svg" alt="close button" class="p-4 bg-red-700 justify-end hover:text-black hover:bg-red">
+          <li class="p-4 text-slate-100 hover:bg-slate-100 hover:text-black">Home</li>
+          <li class="p-4 text-slate-100 hover:bg-slate-100 hover:text-black">Login</li>
+          <button class=" bg-slate-100 w-full text-black p-3 rounded">Create an account</button>
+      </ul>
+
+      <section id="top-bar" class="w-4/5 mx-auto ">
+          <div class="bg-slate-100 p-5 md:p-10 lg:p-10 flex justify-center items-center md:justify-start lg:justify-start lg:items-center ">
+              <div class="w-[95%] md:w-9/12 lg:w-1/3 grid grid-flow-row gap-1 ">
+                  <h1 class="text-3xl font-bold">Welcome to YelpCamp!</h1>
+                  <p class="">View our hand-picked campgrounds from all over the world or add your own.</p>
+                  <div class="lg:flex flex-row gap-5 content-between flex-wrap">
+                      <input class="input p-4 w-full md:w-38 lg:w-[60%] rounded-lg" type="text" placeholder="&#xF002; Search for Camps" style="font-family:Arial, FontAwesome" />
+                      <button id="btn" class=" bg-black md:w-32 lg:w-32 w-full text-white p-4 rounded-lg" type="button">Search</button>
+                  </div>
+                  <p id="addDetails" class="underline cursor-pointer">Or add your own campground</p>
+              </div>
+          </div>
+          <div id="card-container" class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full gap-5 mt-20">
+              <!-- campground's cards are rendered here-->
+          </div>
+      </section>
+
+      <!-- <div id="container-info" class="grid grid-cols-2" class="hidden">
+          <div class="flex flex-row">
+              <div id="mapContainer" class="hidden">
+                  -- Embed an Earth map here --
+                  
+              </div>
+              <div id="detailedInfoContainer" class="hidden">
+                  -- Detailed campground information goes here --
+              </div>
+          </div>
+          <div id="feedbackContainer" class="">
+              -- Customer feedbacks go here --
+          </div>
+      </div> -->
+      
+
+      <div id="popupContainer" class="popup">
+          <div class="popup-content">
+              <span class="close-button" id="closePopupButton">&times;</span>
+              <div class="flex flex-col">
+                  <input class="input p-2 mb-5 border-b-2 w-3/4 md:w-38 " placeholder="&#xF002; Name of camp-ground" style="font-family:Arial, FontAwesome" type="text" id="nameOfCampGround"/>
+                  <input class="input p-2 mb-5 border-b-2 w-3/4 md:w-38 " type="text" placeholder="&#xF002; Description of camp-ground" style="font-family:Arial, FontAwesome" id="description">
+                  <input type="file" id="imageOfCampGround" class="mb-5 ">
+                  <button id="addCamp" type="button" class="bg-black text-white rounded p-3">Add campGround</button>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <!-- -------------------------------------------------------------------- -->
+    <!-- INDIVIDUALPAGE -->
+    <!-- -------------------------------------------------------------------- -->
+
+    <div id="IndividualPage" class="hidden">
+      <nav class="flex sticky top-0 bg-white justify-between items-center w-4/5 mx-auto py-10">
+        <div class="flex justify-between lg:w-1/6">
+            <img class=" hover:animate-bounce" src="Assets/Logo.svg"  alt="Logo"/>
+            <span class="hidden md:hidden lg:inline">Home</span>
+        </div>
+        <div class="flex justify-between items-center w-fit  md:w-fit lg:w-1/5">
+            <span class="hidden md:hidden lg:inline">Login</span>
+            <button class=" bg-black hidden md:hidden lg:inline lg:w-[75%] text-white p-3 rounded">Create an account</button>
+            <span class="inline md:inline lg:hidden">
+                <img id="Menu-btn" src="Assets/Hamburger Menu.svg" alt="Hamburger menu" class="animate-ping">
+            </span>
+        </div>
+      </nav>
+
+      <ul id="show-menu" class="absolute right-5 transition-transform translate-y-6 duration-75 ease-in-ease-out hidden grid grid-cols-1 gap-2 p-10 justify-end bg-black text-white sm:w-full md:w-2/5">
+          <img id="close-btn" src="Assets/Close.svg" alt="close button" class="p-4 bg-red-700 justify-end hover:text-black hover:bg-red">
+          <li class="p-4 text-slate-100 hover:bg-slate-100 hover:text-black">Home</li>
+          <li class="p-4 text-slate-100 hover:bg-slate-100 hover:text-black">Login</li>
+          <button class=" bg-slate-100 w-full text-black p-3 rounded">Create an account</button>
+      </ul>
+
+      <div class="w-4/5 mx-auto flex flex-col gap-3 md:flex-col md:gap-5 lg:flex-row justify-around">
+          <div id="mapContainer" class=" w-full order-2 md:2/3 md:order-2 lg:w-1/3 lg:order-2">
+              <!-- Embed an Earth map here -->
+              <img src="images/Map.png" alt="map" class="border-2 border-solid p-10 w-full" lazy="loading">
+          </div>
+          <div class="grid grid-flow-row gap-3 md:gap-5 lg:gap-10 w-full order-1 md:w-full md:order-1 lg:w-1/2 lg:order-2">
+              <div id="detailedInfoContainer" class="p-5 border-2 border-solid rounded items-center w-full">
+                  <!-- Detailed campground information will be displayed here -->
+              </div>
+              <div id="feedbackContainer" class="p-10 border-2 border-solid rounded items-center w-full">
+                  <!-- Customer feedbacks go here -->
+              </div>
+          </div>
+      </div>
+      <div id="popupContainer" class="popup">
+          <div class="popup-content">
+              <span class="close-button" id="closePopupButton">&times;</span>
+              <div class="flex flex-col">
+                  <input class="input p-2 mb-5 border-b-2 w-3/4 md:w-38 " placeholder="&#xF002; Name of Reviewer" style="font-family:Arial, FontAwesome" type="text" id="nameOfReviewer"/>
+                  <input class="input p-2 mb-5 border-b-2 w-3/4 md:w-38 " type="text" placeholder="&#xF002; Description" style="font-family:Arial, FontAwesome" id="description">
+                  <button id="addReview" type="button" class="bg-black text-white rounded p-3">Review</button>
+              </div>
+          </div>
+      </div>
+    
+    </div>
+    <script src="all.js"></script>
+    <!-- <script src="page2.js" async></script>
+    <script src="search.js" async></script> -->
 </body>
 </html>

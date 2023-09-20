@@ -50,7 +50,7 @@ function generateCardHTML(camp) {
             <img class="rounded-lg w-full" src="${camp.image}" alt="${camp.name}"/>
             <h4 class="text-lg font-bold">${camp.name}</h4>
             <p class="text-slate-600">${camp.description}</p>
-            <button data-index="${camp.id}" class="view-button input p-3 font-bold hover:animate-pulse hover:bg-[#DAD7CD] hover:border-none"><a href="page2.html?id=${camp.id}">${camp.button}</a></button>
+            <a href="page2.html?id=${camp.id}" class="view-button text-center input p-3 font-bold hover:animate-pulse hover:bg-[#DAD7CD] hover:border-none"><button data-index="${camp.id}">${camp.button}</button></a>
           </div>`;
 }
 
