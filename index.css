@@ -34,3 +34,33 @@
 .input{
     border: 1px solid lightgray;
 }
+
+@keyframes pulse{
+    0%{
+        transform: scale(0.8);
+        -webkit-transform: scale(0.8);
+        -moz-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+        -o-transform: scale(0.8);
+        background-color: #0e3bc0;
+        box-shadow: 0 0 0 0 rgba(178, 212, 252, 0.7);
+    }
+    50%{
+        transform: scale(0.9);
+        -webkit-transform: scale(0.9);
+        -moz-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        -o-transform: scale(0.9);
+        background-color: #00fffc;
+        box-shadow: 0 0 0 5px rgb(178, 212, 252, 0.325)
+    }
+    100%{
+        transform: scale(0.8);
+        -webkit-transform: scale(0.8);
+        -moz-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+        -o-transform: scale(0.8);
+        background-color: #00fffc;
+        box-shadow: 0 0 0 0 rgb(18, 55, 97);
+    }
+}

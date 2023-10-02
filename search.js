@@ -46,7 +46,7 @@ const campGrounds = [
 const cardContainer = document.querySelector('#card-container');
 
 function generateCardHTML(camp) {
-  return `<div class="w-100 grid grid-flow-row gap-2 border-solid border-2 p-3 input" key="${camp.id}">
+  return `<div class="w-100 grid grid-flow-row gap-2 border-solid border-2 p-3 transition-all origin-{center left} hover:scale-[1.05] hover:shadow-lg input" key="${camp.id}">
             <img class="rounded-lg w-full" src="${camp.image}" alt="${camp.name}"/>
             <h4 class="text-lg font-bold">${camp.name}</h4>
             <p class="text-slate-600">${camp.description}</p>
